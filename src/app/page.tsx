@@ -84,7 +84,7 @@ export default function Home() {
       <table style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
-            <th style={{ border: '1px solid black', padding: '10px' }}>Index #</th>
+            <th style={{ border: '1px solid black', padding: '10px' }}>Indexes #</th>
             <th style={{ border: '1px solid black', padding: '10px' }}>Value</th>
           </tr>
         </thead>
