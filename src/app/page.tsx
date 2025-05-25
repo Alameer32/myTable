@@ -78,22 +78,43 @@ export default function Home() {
     fetchData();
   }, []);
 
+  const tableStyle = {
+    border: '2px solid black',
+    borderCollapse: 'collapse' as const,
+    width: '100%',
+    maxWidth: '600px',
+    margin: '20px 0'
+  };
+
+  const cellStyle = {
+    border: '2px solid black',
+    padding: '12px 15px',
+    textAlign: 'center' as const,
+    fontSize: '16px'
+  };
+
+  const headerStyle = {
+    ...cellStyle,
+    backgroundColor: '#404040',
+    fontWeight: 'bold' as const
+  };
+
   return (
     <main style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Table 1</h1>
-      <table style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '20px' }}>Table 1</h1>
+      <table style={tableStyle}>
         <thead>
           <tr>
-            <th style={{ border: '1px solid black', padding: '10px' }}>Indexes #</th>
-            <th style={{ border: '1px solid black', padding: '10px' }}>Value</th>
+            <th style={headerStyle}>Indexes #</th>
+            <th style={headerStyle}>Value</th>
           </tr>
         </thead>
         <tbody>
           {tableData.map((row, index) =>
             row["Index #"] ? (
               <tr key={`${row["Index #"]}-${index}`}>
-                <td style={{ border: '1px solid black', padding: '10px' }}>{row["Index #"]}</td>
-                <td style={{ border: '1px solid black', padding: '10px' }}>{row["Value"]}</td>
+                <td style={cellStyle}>{row["Index #"]}</td>
+                <td style={cellStyle}>{row["Value"]}</td>
               </tr>
             ) : null
           )}
@@ -102,26 +123,26 @@ export default function Home() {
 
       {table2 && (
         <>
-          <h2 style={{ marginTop: '3rem' }}>Table 2</h2>
-          <table style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
+          <h2 style={{ marginTop: '3rem', fontSize: '24px', marginBottom: '20px' }}>Table 2</h2>
+          <table style={tableStyle}>
             <thead>
               <tr>
-                <th style={{ border: '1px solid black', padding: '10px' }}>Category</th>
-                <th style={{ border: '1px solid black', padding: '10px' }}>Value</th>
+                <th style={headerStyle}>Category</th>
+                <th style={headerStyle}>Value</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style={{ border: '1px solid black', padding: '10px' }}>Alpha</td>
-                <td style={{ border: '1px solid black', padding: '10px' }}>{table2.Alpha}</td>
+                <td style={cellStyle}>Alpha</td>
+                <td style={cellStyle}>{table2.Alpha}</td>
               </tr>
               <tr>
-                <td style={{ border: '1px solid black', padding: '10px' }}>Beta</td>
-                <td style={{ border: '1px solid black', padding: '10px' }}>{table2.Beta}</td>
+                <td style={cellStyle}>Beta</td>
+                <td style={cellStyle}>{table2.Beta}</td>
               </tr>
               <tr>
-                <td style={{ border: '1px solid black', padding: '10px' }}>Charlie</td>
-                <td style={{ border: '1px solid black', padding: '10px' }}>{table2.Charlie}</td>
+                <td style={cellStyle}>Charlie</td>
+                <td style={cellStyle}>{table2.Charlie}</td>
               </tr>
             </tbody>
           </table>
